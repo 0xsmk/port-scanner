@@ -1,15 +1,15 @@
 #  Port Scanner
 
-Учебный проект по пентесту: простой TCP-портсканер на Python.  
-Сканирует порты, определяет, открыты ли они, и пытается получить баннер сервиса.  
+A simple TCP port scanner written in Python.  
+It scans ports, checks whether they are open, and attempts to grab the service banner.  
 
- **Использовать только в образовательных целях.  
-Не сканируйте чужие хосты без разрешения!**
+ **For educational purposes only.  
+Do not scan hosts without explicit permission!**
 
 ---
 
-##  Установка
-Клонируем репозиторий и запускаем сканер:
+##  Installation
+Clone the repository and run the scanner:
 
 ```bash
 git clone git@github.com:0xsmk/port-scanner.git
