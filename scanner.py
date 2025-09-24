@@ -10,11 +10,13 @@ def scan_target(target, ports):
             try:
                 banner = sock.recv(1024).decode().strip()
                 if banner:
-                    print(f"[OPEN] Port {port} → {banner}")
+                    print(f"[OPEN]   Port {port} → {banner}")
                 else:
-                    print(f"[OPEN] Port {port} (no banner)")
+                    print(f"[OPEN]   Port {port} (no banner)")
             except Exception:
-                print(f"[OPEN] Port {port} (no banner)")
+                print(f"[OPEN]   Port {port} (no banner)")
+        else:
+            print(f"[CLOSED] Port {port}")
         sock.close()
 
 def parse_ports(ports_str):
