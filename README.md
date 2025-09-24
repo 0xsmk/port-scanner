@@ -47,6 +47,6 @@ Sample output:
 
 ## To-Do
 
-* [ ] Add multithreading for faster scans
+* [x] Add multithreading for faster scans
 * [ ] Implement UDP scanning
 * [ ] Export results to JSON/CSV
