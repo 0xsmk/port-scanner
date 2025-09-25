@@ -1,8 +1,8 @@
 
 # Port Scanner
 
-A simple TCP port scanner written in Python.  
-It scans ports, checks whether they are open, grabs banners, and can log results to a file.
+A simple TCP/UDP port scanner written in Python.  
+It scans ports, checks whether they are open, grabs banners (TCP), and can log results to a file.
 
 **For educational purposes only.  
 Do not scan hosts without explicit permission!**
@@ -23,23 +23,43 @@ python3 scanner.py -t 127.0.0.1 -p 1-100
 
 ## Example Usage
 
-```bash
-# Scan and show results in console
-python3 scanner.py -t 127.0.0.1 -p 22-80
+### TCP scan
 
-# Save results to text file
+```bash
+# Scan ports with TCP
+python3 scanner.py -t 127.0.0.1 -p 22-80
+```
+
+### UDP scan
+
+```bash
+# Scan DNS port with UDP
+python3 scanner.py -t 127.0.0.1 -p 53 --udp
+```
+
+### Save results to file
+
+```bash
+# Save to text file
 python3 scanner.py -t 127.0.0.1 -p 22-80 -o result.txt
 
-# Save results to JSON
+# Save to JSON
 python3 scanner.py -t 127.0.0.1 -p 22-80 -o result.json
 ```
 
-Sample output:
+Sample TCP output:
 
 ```
-[OPEN]   Port 22 → SSH-2.0-OpenSSH_8.9p1
-[CLOSED] Port 23
-[CLOSED] Port 25
+[OPEN]   TCP 22 → SSH-2.0-OpenSSH_8.9p1
+[CLOSED] TCP 23
+[CLOSED] TCP 25
+```
+
+Sample UDP output:
+
+```
+[OPEN]   UDP 53 → response: b'\x85\x80...'
+[UNKNOWN] UDP 123 (no response)
 ```
 
 ---
@@ -47,7 +67,8 @@ Sample output:
 ## Features
 
 * TCP connect scan
-* Banner grabbing (basic service detection)
+* UDP scanning (basic, response-based)
+* Banner grabbing for TCP services
 * Multithreading for faster scans
 * Output results to `.txt` or `.json`
 
@@ -57,5 +78,6 @@ Sample output:
 
 * [x] Add multithreading for faster scans
 * [x] Save results to text/JSON file
-* [ ] Implement UDP scanning
+* [x] Implement UDP scanning
+* [ ] Improve UDP detection reliability
 
